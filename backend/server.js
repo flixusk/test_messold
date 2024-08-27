@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const { fetchProducts } = require('./api');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(cors());
 
 app.get('/api/products', async (req, res) => {
   try {
